@@ -31,6 +31,7 @@ function showCountires(countires,limit) {
   }
     const reducedCountry = countires.slice(0,limit);
     container.innerHTML = '';
+    document.getElementById('total-result').innerText = `Total ${countires.length} countries found`;
     reducedCountry.forEach(country => { 
        
         let makeDiv = document.createElement('div');
@@ -41,6 +42,7 @@ function showCountires(countires,limit) {
                    <p>Capital: ${country.capital ? country.capital[0] : 'Unknown'}</p>
                 </div>
         `;
+
         container.appendChild(makeDiv);
     }
         
