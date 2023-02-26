@@ -1,15 +1,26 @@
-const region = document.getElementById('region');
-region.addEventListener('change', () => {
-    let url = `https://restcountries.com/v3.1/region/${region.value}`;
-    fetch(url)
-        .then(res => res.json())
+const APIURL = 'https://restcountries.com/v3.1/';
+const region = document.getElementById('region')
+
+
+region.addEventListener('change',()=>{
+    const regionData = region.value;
+    getData(regionData)
+});
+
+function getData(region){
+    fetch(APIURL + region)
+    .then(res => res.json())
     .then(data => showCountires(data))
-})
+
+}
+getData('all')
 
 function showCountires(countires) {
+    const reducedCountry = countires.slice(0,20);
+    
     let container = document.getElementById('container');
     container.innerHTML = '';
-    countires.forEach(country => { 
+    reducedCountry.forEach(country => { 
        
         let makeDiv = document.createElement('div');
         makeDiv.innerHTML = `

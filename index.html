@@ -11,21 +11,22 @@
     <div class="container">
         <div class="search-box">
             <p>JavaScript API Tutotial Project</p>
-            <h2 class="title-text">Select a Region</h2>
+            <h2 class="title-text">Filter by Region</h2>
             <select id="region" class="select-item">
                 <!-- Africa, Americas, Asia, Europe, Oceania -->
-                <option value="">Select a region</option>
-                <option value="africa">Africa</option>
-                <option value="americas">Americas</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Oceania</option>
+                <option value="all">All Region</option>
+                <option value="region/africa">Africa</option>
+                <option value="region/americas">Americas</option>
+                <option value="region/asia">Asia</option>
+                <option value="region/europe">Europe</option>
+                <option value="region/oceania">Oceania</option>
             </select>
         </div>
     </div>
     <div class="container">
-        <div class="sub-container" id="container">
-            
+        <div class="sub-container" id="container"></div>
+        <div style="text-align:center;">
+            <button id="view-all">Show All</button>
         </div>
     </div>
 
