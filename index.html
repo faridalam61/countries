@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest Countries</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,6 +26,10 @@
         </div>
     </div>
     <div class="container">
+        <div id="spiner" class="text-center">
+            <progress class="progress w-56"></progress>
+            <p>Please wait!! Loading...</p>
+        </div>
         <div class="sub-container" id="container"></div>
         <div style="text-align:center;">
             <button id="view-all">Show All</button>

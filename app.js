@@ -1,8 +1,12 @@
 const APIURL = 'https://restcountries.com/v3.1/';
-const region = document.getElementById('region')
+const region = document.getElementById('region');
+const spiner = document.getElementById('spiner');
+const container = document.getElementById('container');
 
 
-region.addEventListener('change',()=>{
+region.addEventListener('change', () => {
+    spiner.classList.remove('hidden');
+    container.classList.add('hidden')
     const regionData = region.value;
     getData(regionData)
 });
@@ -15,10 +19,11 @@ function getData(region){
 }
 getData('all')
 
-function showCountires(countires) {
+function showCountires(countires) {   
+    spiner.classList.add('hidden');
+    container.classList.remove('hidden');
+  
     const reducedCountry = countires.slice(0,20);
-    
-    let container = document.getElementById('container');
     container.innerHTML = '';
     reducedCountry.forEach(country => { 
        
