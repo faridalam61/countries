@@ -2,28 +2,34 @@ const APIURL = 'https://restcountries.com/v3.1/';
 const region = document.getElementById('region');
 const spiner = document.getElementById('spiner');
 const container = document.getElementById('container');
-
+const showAll = document.getElementById('show-all');
 
 region.addEventListener('change', () => {
     spiner.classList.remove('hidden');
-    container.classList.add('hidden')
+    container.classList.add('hidden');
+    document.getElementById('view-all').parentNode.style.display = 'block';
     const regionData = region.value;
-    getData(regionData)
+    getData(regionData,20)
 });
 
-function getData(region){
+function getData(region,limit){
     fetch(APIURL + region)
     .then(res => res.json())
-    .then(data => showCountires(data))
+    .then(data => showCountires(data,limit))
 
 }
-getData('all')
+getData('all',20)
 
-function showCountires(countires) {   
+function showCountires(countires,limit) {   
     spiner.classList.add('hidden');
     container.classList.remove('hidden');
-  
-    const reducedCountry = countires.slice(0,20);
+
+    if (countires.length > 20) {
+      showAll.classList.remove('hidden')
+    } else {
+        showAll.classList.add('hidden');
+  }
+    const reducedCountry = countires.slice(0,limit);
     container.innerHTML = '';
     reducedCountry.forEach(country => { 
        
@@ -41,3 +47,9 @@ function showCountires(countires) {
     );
 
 }
+
+
+document.getElementById('view-all').addEventListener('click', (e) => {
+    getData(region.value);
+    e.target.parentNode.style.display = 'none';
+})
