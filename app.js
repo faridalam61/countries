@@ -40,7 +40,7 @@ function showCountires(countires,limit) {
                    <img src="${country.flags.png}" alt="" class="img">
                    <h2 class="country-name">${country.name.common}</h2>
                    <p>Capital: ${country.capital ? country.capital[0] : 'Not available'}</p>
-                   <label for="my-modal-6" class="bg-red-200 hover:bg-red-300 py-2 text-black rounded my-2" onclick="viewDetails('${country.name.common}','${country.name.official}','${country.capital}','${country.region}','${country.subregion}','${country.timezones[0]}')">View Details</label>
+                   <label for='my-modal-6' class='bg-red-200 hover:bg-red-300 py-2 text-black rounded my-2' onclick='viewDetails("${country.name.common}","${country.capital}","${country.region}","${country.subregion}","${country.timezones[0]}")'>View Details</label>
                 </div>
         `;
 
@@ -57,9 +57,8 @@ document.getElementById('view-all').addEventListener('click', (e) => {
     e.target.parentNode.style.display = 'none';
 })
 
-function viewDetails(name,official,capital,region,subregion,timezone){
+function viewDetails(name,capital,region,subregion,timezone){
     document.getElementById('cname').innerHTML = `${name}`;
-    document.getElementById('oname').innerHTML = `Official Name: ${official}`;
     document.getElementById('cap').innerHTML = `Capital: ${capital}`;
         document.getElementById('reg').innerHTML = `Region: ${region}`;
        document.getElementById('subregion').innerHTML = `Sub Region: ${subregion}`;
